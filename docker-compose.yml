@@ -21,7 +21,8 @@ services:
     environment:
       - CERTBOT_EMAIL=ndubuisipeter7@gmail.com
     volumes:
-      - nginx.conf:/etc/nginx/user_conf.d/nginx.conf:ro
+      - ./nginx:/etc/nginx/user_conf.d:ro
+      - app.sock:/application_root/app/sockets/app.sock
       - letsencrypt:/etc/letsencrypt
     depends_on:
       - web
@@ -34,3 +35,4 @@ services:
 
 volumes:
   letsencrypt:
+  app.sock:
